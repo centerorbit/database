@@ -277,12 +277,12 @@ class DatabaseManager implements ConnectionResolverInterface
      */
     public function supportedDrivers()
     {
-        return ['mysql', 'pgsql', 'sqlite', 'sqlsrv'];
+        return ['mysql', 'cockroach','pgsql', 'sqlite', 'sqlsrv'];
     }
 
     /**
      * Get all of the drivers that are actually available.
-     *
+     * TODO: Add cockroach based off of pgsql
      * @return array
      */
     public function availableDrivers()
