@@ -240,6 +240,7 @@ class ConnectionFactory
         switch ($config['driver']) {
             case 'mysql':
                 return new MySqlConnector;
+            case 'cockroach':
             case 'pgsql':
                 return new PostgresConnector;
             case 'sqlite':
