@@ -282,14 +282,21 @@ class DatabaseManager implements ConnectionResolverInterface
 
     /**
      * Get all of the drivers that are actually available.
-     * TODO: Add cockroach based off of pgsql
      * @return array
      */
     public function availableDrivers()
     {
+        $availableDrivers = PDO::getAvailableDrivers();
+        $availableDrivers = str_replace('dblib', 'sqlsrv', $availableDrivers);
+
+        if (array_has('pgsql')){
+            $availableDrivers[] = 'cockroach';
+        }
+
+
         return array_intersect(
             $this->supportedDrivers(),
-            str_replace('dblib', 'sqlsrv', PDO::getAvailableDrivers())
+            $availableDrivers
         );
     }
 
