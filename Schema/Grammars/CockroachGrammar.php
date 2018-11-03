@@ -56,17 +56,4 @@ class CockroachGrammar extends PostgresGrammar
         return $column->useCurrent ? "$columnType default CURRENT_TIMESTAMP" : $columnType;
     }
 
-
-    /**
-     * TODO: Does Cockroach even support this?
-     *
-     * Format the column definition for a PostGIS spatial type.
-     *
-     * @param  string  $type
-     * @return string
-     */
-    private function formatPostGisType(string $type)
-    {
-        return "geography($type, 4326)";
-    }
 }
