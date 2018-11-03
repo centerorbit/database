@@ -16,7 +16,7 @@ class CockroachGrammar extends PostgresGrammar
      */
     protected function typeDateTime(Fluent $column)
     {
-        return "timestamptz";
+        return "timestamp";
     }
 
     /**
@@ -27,10 +27,12 @@ class CockroachGrammar extends PostgresGrammar
      */
     protected function typeDateTimeTz(Fluent $column)
     {
-        return "timestamp";
+        return "timestamptz";
     }
 
     /**
+     * TODO: Does Cockroach even support this?
+     *
      * Format the column definition for a PostGIS spatial type.
      *
      * @param  string  $type
